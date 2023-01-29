@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2023 FC Stegerman <flx@obfusk.net>
+# SPDX-License-Identifier: GPL-3.0-or-later
 set -e
 all_versions_url=https://services.gradle.org/versions/all
 url_prefix=https://services.gradle.org/distributions

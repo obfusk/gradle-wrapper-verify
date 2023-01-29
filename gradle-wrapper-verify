@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2023 FC Stegerman <flx@obfusk.net>
+# SPDX-License-Identifier: GPL-3.0-or-later
 set -e
 # cut -d= -f2 < gradle-wrapper-checksums | sort | uniq
 sha256sums=(
@@ -70,7 +72,7 @@ sha256sums=(
   f1a597a1f2b23089deec11d5b924d074f9e4ed810f2093be7021ded01c8073ad
   f4d953f31fbf6c38a8c330d19171c8ba6e0d1ff59d4d5c5c2d3ed821c9f3d5a3
   fa9b4294d47cf8db7039cb9b2435de3dd1accb0d3d67926705775a0579dfa397
-)
+) # sha256sums
 files=( "$@" )
 if [ "$#" = 0 ]; then
   for f in gradle-wrapper.jar gradle/wrapper/gradle-wrapper.jar; do
