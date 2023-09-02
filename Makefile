@@ -10,7 +10,8 @@ download-checksums:
 update-checksums:
 	sed -n '1,/^sha256sums=/p' < gradle-wrapper-verify \
 	  >  gradle-wrapper-verify.updated
-	cut -d= -f2 < gradle-wrapper-checksums | sort | uniq | sed 's/^/  /' \
+	cut -d= -f2 < gradle-wrapper-checksums | sort | uniq \
+	  | cut -c-64 | tr -cd '0-9a-f\n' | sed 's/^/  /' \
 	  >> gradle-wrapper-verify.updated
 	sed -n '/^) # sha256sums/,$$p' < gradle-wrapper-verify \
 	  >> gradle-wrapper-verify.updated
