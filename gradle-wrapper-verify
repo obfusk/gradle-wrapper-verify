@@ -93,6 +93,11 @@ fi
 all_ok=yes
 for file in "${files[@]}"; do
   echo "checking $file ..."
+  if [ ! -e "$file" ]; then
+    echo 'no such file'
+    all_ok=no
+    continue
+  fi
   sha256sum="$( sha256sum -- "$file" | cut -c-64 )"
   found=no
   for sum in "${sha256sums[@]}"; do
@@ -103,7 +108,7 @@ for file in "${files[@]}"; do
     fi
   done
   if [ "$found" = no ]; then
-    echo 'not found'
+    echo 'unknown hash'
     all_ok=no
   fi
 done
